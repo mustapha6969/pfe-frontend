@@ -1,0 +1,12 @@
+<h3>Users List</h3>
+<hr>
+<div class="d-flex justify-content-start gap-2 flex-wrap">
+  <div *ngFor="let user of users" class="card p-2">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.firstname }} {{ user.lastname }}</h5>
+      <p class="card-text">
+        Email: {{ user.email }}<br>
+      </p>
+    </div>
+  </div>
+</div>

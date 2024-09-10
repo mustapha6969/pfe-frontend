@@ -1,0 +1,23 @@
+<h3>Reports</h3>
+<hr>
+<div class="d-flex justify-content-start gap-2 flex-wrap">
+  <div *ngFor="let report of reports" class="card pdf-card p-2" style="width: 150px; height: 250px;">
+    <div class="card-body text-center d-flex flex-column align-items-center">
+      <!-- PDF Icon -->
+      <div class="pdf-icon">
+        <img src="assets/pdf-icon.png" alt="PDF" style="width: 60px; height: 60px;">
+      </div>
+      <!-- Report Title -->
+      <div class="mt-3">
+        <h6 class="card-title">{{ report.title }}</h6>
+      </div>
+      <div class="mt-3">
+        <h6 class="card-title">{{ report.description }}</h6>
+      </div>
+      <!-- View PDF button -->
+      <div class="mt-auto">
+        <button class="btn btn-primary btn-sm" (click)="viewPdf(report)">View</button>
+      </div>
+    </div>
+  </div>
+</div>

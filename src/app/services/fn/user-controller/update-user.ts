@@ -14,12 +14,18 @@ export interface UpdateUser$Params {
 }
 
 export function updateUser(http: HttpClient, rootUrl: string, params: UpdateUser$Params, context?: HttpContext): Observable<StrictHttpResponse<User>> {
+  const token = localStorage.getItem('token');
+
   const rb = new RequestBuilder(rootUrl, updateUser.PATH, 'put');
   if (params) {
     rb.path('id', params.id, {});
     rb.body(params.body, 'application/json');
   }
-
+  if (token) {
+    rb.header('Authorization', `Bearer ${token}`);
+  } else {
+    console.error('No token found in localStorage');
+  }
   return http.request(
     rb.build({ responseType: 'json', accept: 'application/json', context })
   ).pipe(

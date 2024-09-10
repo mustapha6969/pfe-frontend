@@ -1,0 +1,123 @@
+<div class="container mt-4">
+  <h2>Security Task Proof Submission</h2>
+  <form>
+    <!-- Task Information -->
+    <div class="mb-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="taskName"
+        name="taskName"
+        placeholder="Enter task name"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="taskDescription" class="form-label">Task Description</label>
+      <textarea
+        class="form-control"
+        id="taskDescription"
+        name="taskDescription"
+        rows="4"
+        placeholder="Describe the task and its security requirements"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Security Measures -->
+    <h4 class="mt-4">Security Measures</h4>
+
+    <div class="mb-3">
+      <label for="encryptionUsed" class="form-label">Encryption Used</label>
+      <select class="form-select" id="encryptionUsed" name="encryptionUsed" required>
+        <option value="">Select encryption type</option>
+        <option value="AES">AES (Advanced Encryption Standard)</option>
+        <option value="RSA">RSA (Rivest-Shamir-Adleman)</option>
+        <option value="DES">DES (Data Encryption Standard)</option>
+        <option value="None">None</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="documentationUpload" class="form-label">Upload Security Proof Documents (PDF, images, logs)</label>
+      <input
+        type="file"
+        class="form-control"
+        id="documentationUpload"
+        name="documentationUpload"
+        accept=".pdf, .jpg, .png, .log"
+        multiple
+        required>
+    </div>
+
+    <div class="mb-3">
+      <label for="securityTesting" class="form-label">Security Testing Performed</label>
+      <textarea
+        class="form-control"
+        id="securityTesting"
+        name="securityTesting"
+        rows="4"
+        placeholder="Describe any security tests that were performed (e.g., penetration testing, vulnerability scans)"
+        required
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="documentationUpload" class="form-label">Upload Security Proof Documents (PDF, images, logs)</label>
+      <input
+        type="file"
+        class="form-control"
+        id="documentationUpload1"
+        name="documentationUpload"
+        accept=".pdf, .jpg, .png, .log"
+        multiple
+        required>
+    </div>
+
+    <!-- Verification -->
+    <h4 class="mt-4">Verification</h4>
+
+    <div class="mb-3">
+      <label for="testResults" class="form-label">Test Results</label>
+      <textarea
+        class="form-control"
+        id="testResults"
+        name="testResults"
+        rows="4"
+        placeholder="Summarize the results of security testing"
+        required
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="documentationUpload" class="form-label">Upload Security Proof Documents (PDF, images, logs)</label>
+      <input
+        type="file"
+        class="form-control"
+        id="documentationUpload2"
+        name="documentationUpload"
+        accept=".pdf, .jpg, .png, .log"
+        multiple
+        required>
+    </div>
+
+    <div class="mb-3">
+      <label for="verifiedBy" class="form-label">Verified By</label>
+      <input
+        type="text"
+        class="form-control"
+        id="verifiedBy"
+        name="verifiedBy"
+        placeholder="Enter name of verifier"
+        required
+      />
+    </div>
+
+
+
+    <!-- Form Submit -->
+    <button type="submit" class="btn btn-primary">Submit Proof</button>
+  </form>
+</div>

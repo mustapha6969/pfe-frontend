@@ -9,13 +9,27 @@ import { RequestBuilder } from '../../request-builder';
 import { User } from '../../models/user';
 
 export interface CreateUser$Params {
-      body: User
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  role: string;
 }
 
 export function createUser(http: HttpClient, rootUrl: string, params: CreateUser$Params, context?: HttpContext): Observable<StrictHttpResponse<User>> {
+  const token = localStorage.getItem('token');
+
   const rb = new RequestBuilder(rootUrl, createUser.PATH, 'post');
-  if (params) {
-    rb.body(params.body, 'application/json');
+  rb.query('firstname', params.firstname);
+  rb.query('lastname', params.lastname);
+  rb.query('email', params.email);
+  rb.query('password', params.password);
+  rb.query('role', params.role);
+
+  if (token) {
+    rb.header('Authorization', `Bearer ${token}`);
+  } else {
+    console.error('No token found in localStorage');
   }
 
   return http.request(

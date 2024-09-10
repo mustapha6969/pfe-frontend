@@ -9,15 +9,22 @@ import { RequestBuilder } from '../../request-builder';
 import { Project } from '../../models/project';
 
 export interface CreateProject$Params {
-      body: Project
+      name: string;
+      description: string;
 }
 
 export function createProject(http: HttpClient, rootUrl: string, params: CreateProject$Params, context?: HttpContext): Observable<StrictHttpResponse<Project>> {
-  const rb = new RequestBuilder(rootUrl, createProject.PATH, 'post');
-  if (params) {
-    rb.body(params.body, 'application/json');
-  }
+  const token = localStorage.getItem('token');
 
+  const rb = new RequestBuilder(rootUrl, createProject.PATH, 'post');
+rb.query('name',params.name);
+rb.query('description',params.description);
+
+  if (token) {
+    rb.header('Authorization', `Bearer ${token}`);
+  } else {
+    console.error('No token found in localStorage');
+  }
   return http.request(
     rb.build({ responseType: 'json', accept: 'application/json', context })
   ).pipe(

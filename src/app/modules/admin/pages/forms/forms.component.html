@@ -1,0 +1,16 @@
+<h3>Forms List</h3>
+<hr>
+<div class="d-flex justify-content-start gap-2 flex-wrap">
+  <div *ngFor="let form of forms" class="card p-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ form.title }}</h5>
+      <p class="card-text">
+        {{ form.description }}<br>
+      </p>
+      <!-- Update and Delete buttons -->
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-sm btn-warning" routerLink="form-details">details</button>
+      </div>
+    </div>
+  </div>
+</div>

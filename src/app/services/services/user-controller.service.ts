@@ -138,18 +138,8 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  createUser$Response(params: CreateUser$Params, context?: HttpContext): Observable<StrictHttpResponse<User>> {
-    return createUser(this.http, this.rootUrl, params, context);
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `createUser$Response()` instead.
-   *
-   * This method sends `application/json` and handles request body of type `application/json`.
-   */
   createUser(params: CreateUser$Params, context?: HttpContext): Observable<User> {
-    return this.createUser$Response(params, context).pipe(
+    return createUser(this.http, this.rootUrl, params, context).pipe(
       map((r: StrictHttpResponse<User>): User => r.body)
     );
   }

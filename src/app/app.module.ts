@@ -26,6 +26,7 @@ import { ConsultantdashboardComponent } from './pages/securityconsultant/consult
 import { ConsultantprojectsComponent } from './pages/securityconsultant/consultantprojects/consultantprojects.component';
 import { ConsultantformsComponent } from './pages/securityconsultant/consultantforms/consultantforms.component';
 import { ConsultantreportsComponent } from './pages/securityconsultant/consultantreports/consultantreports.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ConsultantreportsComponent } from './pages/securityconsultant/consultan
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-        CodeInputModule
+        CodeInputModule,
+        BrowserAnimationsModule
     ],
   providers: [
     HttpClient

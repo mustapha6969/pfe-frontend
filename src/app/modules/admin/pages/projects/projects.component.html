@@ -1,0 +1,24 @@
+<h3>Projects List</h3>
+<button class="btn btn-primary me-2" routerLink="create-project">+ New</button>
+<hr>
+<div class="d-flex justify-content-start gap-2 flex-wrap">
+  <div *ngFor="let project of projects" class="card p-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ project.name }}</h5>
+      <p class="card-text">
+        Description: {{ project.description }}<br>
+        <!-- You can add more project details here if needed -->
+      </p>
+      <!-- Update and Delete buttons -->
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-sm btn-warning" routerLink="update-project">Update</button>
+        <button
+          class="btn btn-sm btn-danger"
+          *ngIf="project.id !== undefined && project.id !== null"
+          (click)="deleteProject(project.id!)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h2>Update Project</h2>
+  <form>
+    <div class="mb-3">
+      <label for="projectName" class="form-label">Project Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="projectName"
+        name="projectName"
+        value="Example Project Name"
+      required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="projectDescription" class="form-label">Project Description</label>
+      <textarea
+        class="form-control"
+        id="projectDescription"
+        name="projectDescription"
+        rows="4"
+        required
+      >This is an example project description.</textarea> <!-- Static value -->
+    </div>
+
+    <div class="mb-3">
+      <label for="userSelect" class="form-label">Associate Users</label>
+      <select class="form-select" id="userSelect" multiple required>
+        <!-- Static list of users -->
+        <option value="1">John Doe</option>
+        <option value="2">Jane Smith</option>
+        <option value="3">Robert Brown</option>
+        <option value="4">Alice Johnson</option>
+      </select>
+      <small class="form-text text-muted">Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Project</button>
+  </form>
+</div>

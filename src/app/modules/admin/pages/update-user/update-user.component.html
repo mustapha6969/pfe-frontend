@@ -1,0 +1,70 @@
+<div class="container mt-4">
+  <h2>Update User</h2>
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div class="mb-3">
+      <label for="firstname" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstname"
+        name="firstname"
+        [(ngModel)]="user.firstname"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastname"
+        name="lastname"
+        [(ngModel)]="user.lastname"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        [(ngModel)]="user.password"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <input
+        class="form-select"
+        id="role"
+        name="role"
+        [(ngModel)]="user.roles"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="userSelect" class="form-label">Associate Project</label>
+      <select class="form-select" id="userSelect" multiple required>
+        <!-- Static list of users -->
+        <option value="1">John Doe</option>
+        <option value="2">Jane Smith</option>
+        <option value="3">Robert Brown</option>
+        <option value="4">Alice Johnson</option>
+      </select>
+      <small class="form-text text-muted">Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.</small>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Update User</button>
+  </form>
+</div>

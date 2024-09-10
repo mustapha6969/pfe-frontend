@@ -1,12 +1,23 @@
 <h3>Users List</h3>
+<button class="btn btn-primary me-2" routerLink="/admin/create-user">+ New</button>
 <hr>
 <div class="d-flex justify-content-start gap-2 flex-wrap">
-  <div *ngFor="let user of users" class="card p-2">
+  <div *ngFor="let user of users" class="card p-2" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{ user.firstname }} {{ user.lastname }}</h5>
       <p class="card-text">
         Email: {{ user.email }}<br>
       </p>
+      <!-- Update and Delete buttons -->
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-sm btn-warning" routerLink="/admin/update-user">Update</button>
+        <button
+          class="btn btn-sm btn-danger"
+          *ngIf="user.id !== undefined && user.id !== null"
+          (click)="deleteUser(user.id!)">
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 </div>

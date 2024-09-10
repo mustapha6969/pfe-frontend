@@ -12,9 +12,17 @@ export interface DeleteUser$Params {
 }
 
 export function deleteUser(http: HttpClient, rootUrl: string, params: DeleteUser$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const token = localStorage.getItem('token');
+
   const rb = new RequestBuilder(rootUrl, deleteUser.PATH, 'delete');
   if (params) {
     rb.path('id', params.id, {});
+  }
+
+  if (token) {
+    rb.header('Authorization', `Bearer ${token}`);
+  } else {
+    console.error('No token found in localStorage');
   }
 
   return http.request(

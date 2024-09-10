@@ -1,0 +1,55 @@
+<h3>Forms</h3>
+<div class="d-flex justify-content-between align-items-center">
+  <div></div> <!-- Spacer to push the dropdown to the right -->
+  <div class="form-group">
+    <label for="projectFilter" class="me-2">Filter by Project:</label>
+    <select id="projectFilter" class="form-select form-select-sm" style="width: auto;">
+      <option value="all">All Projects</option>
+      <option value="testproj">testproj</option>
+      <option value="proj">proj</option>
+      <!-- Add more projects as needed -->
+    </select>
+  </div>
+</div>
+<hr>
+<div class="d-flex justify-content-start gap-2 flex-wrap">
+  <div class="card form-card p-2" style="width: 18rem;" data-project="testproj">
+    <div class="card-body">
+      <h5 class="card-title">Form 1</h5>
+      <p class="card-text">
+        Project: testproj<br>
+      </p>
+      <p class="card-text">
+        Submission Date: 2024-08-30<br>
+      </p>
+      <button class="btn btn-primary btn-sm" routerLink="read-form">read</button>
+    </div>
+  </div>
+  <div class="card form-card p-2" style="width: 18rem;" data-project="proj">
+    <div class="card-body">
+      <h5 class="card-title">Form 2</h5>
+      <p class="card-text">
+        Project: proj<br>
+      </p>
+      <p class="card-text">
+        Submission Date: 2024-08-29<br>
+      </p>
+      <button class="btn btn-primary btn-sm" routerLink="read-form">read</button>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('projectFilter').addEventListener('change', function () {
+    var selectedProject = this.value;
+    var formCards = document.querySelectorAll('.form-card');
+
+    formCards.forEach(function (card) {
+      var project = card.getAttribute('data-project');
+      if (selectedProject === 'all' || project === selectedProject) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>

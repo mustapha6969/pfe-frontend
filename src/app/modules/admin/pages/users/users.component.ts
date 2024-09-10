@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../../../services/models/user";
-import {UserControllerService} from "../../../../services/services/user-controller.service";
+import { Router } from '@angular/router';
+import { UserControllerService } from '../../../../services/services/user-controller.service';
+import { User } from '../../../../services/models/user';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +11,7 @@ import {UserControllerService} from "../../../../services/services/user-controll
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserControllerService) { }
+  constructor(private userService: UserControllerService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -23,9 +24,27 @@ export class UsersComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching users', err);
-        console.log('Full error response:', err.error);
       }
     });
-
   }
+
+  deleteUser(userId: number | undefined): void {
+    if (userId === undefined) {
+      console.error('User ID is undefined');
+      return;
+    }
+
+    if (confirm('Are you sure you want to delete this user?')) {
+      this.userService.deleteUser({ id: userId }).subscribe({
+        next: () => {
+          console.log('User deleted successfully');
+          this.loadUsers(); // Reload users after deletion
+        },
+        error: (err) => {
+          console.error('Error deleting user', err);
+        }
+      });
+    }
+  }
+
 }

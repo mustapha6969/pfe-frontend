@@ -1,0 +1,53 @@
+<h3>Project/ Form Details</h3>
+<hr>
+<div class="card detail-card p-4">
+  <div class="card-body">
+    <h4 class="card-title">proj</h4>
+    <p class="card-text">
+      <strong>Description:</strong> test test test test test test test test test test <br>
+      <strong>Lead Developer:</strong> stou<br>
+      <strong>Status:</strong> In Progress<br>
+      <strong>Start Date:</strong> 2024-07-01<br>
+      <strong>Expected Completion:</strong> 2024-12-31
+    </p>
+    <h5>Associated Forms</h5>
+    <ul class="list-group">
+      <li class="list-group-item">Form 1 - Submitted by stou on 2024-08-01</li>
+      <li class="list-group-item">Form 2 - Submitted by stou on 2024-08-15</li>
+    </ul>
+  </div>
+
+
+  <strong>Associated Report</strong>
+  <div class="drag-drop-area">
+    <div class="drag-drop-icon">
+      <i class="fas fa-plus"></i>
+    </div>
+    <p class="drag-drop-text">Drop your report</p>
+  </div>
+
+
+  <strong>Associated Report</strong>
+  <div class="d-flex justify-content-start gap-2 flex-wrap">
+    <div *ngFor="let report of reports" class="card pdf-card p-2" style="width: 150px; height: 250px;">
+      <div class="card-body text-center d-flex flex-column align-items-center">
+        <!-- PDF Icon -->
+        <div class="pdf-icon">
+          <img src="assets/pdf-icon.png" alt="PDF" style="width: 60px; height: 60px;">
+        </div>
+        <!-- Report Title -->
+        <div class="mt-3">
+          <h6 class="card-title">{{ report.title }}</h6>
+        </div>
+        <div class="mt-3">
+          <h6 class="card-title">{{ report.description }}</h6>
+        </div>
+        <!-- View PDF button -->
+        <div class="mt-auto">
+          <button class="btn btn-primary btn-sm" (click)="viewPdf(report)">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
